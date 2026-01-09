@@ -46,6 +46,51 @@
             transform: scale(1.02);
             box-shadow: 0 20px 40px -10px rgba(0, 119, 181, 0.4);
         }
+
+        /* Continuous Logo Slider Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 5)); }
+        }
+
+        .slider-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(250px * 10);
+            animation: scroll 30s linear infinite;
+        }
+
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+
+        .slide {
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .tech-logo {
+            height: 40px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .slide:hover .tech-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
@@ -101,15 +146,12 @@
                     Nazim <br> <span class="gradient-text">Shaikh</span>
                 </h1>
 
-                <!-- Mobile Hero Image (Only visible on small screens) -->
+                <!-- Mobile Hero Image -->
                 <div class="lg:hidden relative block">
-                    <!-- Blobs restricted to container to prevent horizontal scroll -->
                     <div class="absolute -top-10 -right-10 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
                     <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 1s;"></div>
-                    
                     <div class="relative z-10 bg-slate-200 dark:bg-slate-800 rounded-[2.5rem] aspect-[4/5] h-[350px] ml-0 flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-900 shadow-xl">
-                       <!-- Professional Profile Image -->
-                       <img src="/assets/img/ns.jpg" alt="Nazim Shaikh" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop'">
+                       <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="Nazim Shaikh" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -121,27 +163,35 @@
                     <a href="#projects" class="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-bold hover:scale-105 transition-transform">Explore Work</a>
                     <a href="#contact" class="px-8 py-4 border-2 border-slate-200 dark:border-slate-800 rounded-2xl font-bold hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">Let's Connect</a>
                 </div>
-                <div class="flex items-center space-x-6 pt-4 grayscale opacity-60">
-                    <span class="text-sm font-bold uppercase tracking-widest">Stack:</span>
-                    <div class="flex space-x-4">
-                        <span class="font-bold">WordPress</span>
-                        <span class="font-bold">Shopify</span>
-                        <span class="font-bold">React</span>
-                        <span class="font-bold">PHP</span>
+
+                <!-- Updated Tech Slider Section -->
+                <div class="pt-4 space-y-4">
+                    <span class="text-xs font-black uppercase tracking-[0.3em] opacity-40">Core Tech Stack</span>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                            <!-- Logos using reliable DevIcon CDN for stability -->
+                            <div class="slide"><img src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" class="tech-logo" alt="WordPress"></div>
+                            <div class="slide"><img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" class="tech-logo" alt="Shopify"></div>
+                            <div class="slide"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" class="tech-logo" alt="React"></div>
+                            <div class="slide"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" class="tech-logo" alt="PHP"></div>
+                            <div class="slide"><img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg" class="tech-logo" alt="Git"></div>
+                            <!-- Duplicate for Seamless Loop -->
+                            <div class="slide"><img src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" class="tech-logo" alt="WordPress"></div>
+                            <div class="slide"><img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" class="tech-logo" alt="Shopify"></div>
+                            <div class="slide"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" class="tech-logo" alt="React"></div>
+                            <div class="slide"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" class="tech-logo" alt="PHP"></div>
+                            <div class="slide"><img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg" class="tech-logo" alt="Git"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Desktop Hero Image (Only visible on large screens) -->
+            <!-- Desktop Hero Image -->
             <div class="hidden lg:block relative">
-                <!-- Blobs restricted to container to prevent horizontal scroll -->
                 <div class="absolute -top-10 -right-10 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse pointer-events-none"></div>
                 <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-pulse pointer-events-none" style="animation-delay: 1s;"></div>
-                
-                <!-- Fixed image container height to fit viewport better -->
                 <div class="relative z-10 bg-slate-200 dark:bg-slate-800 rounded-[3rem] aspect-[4/5] lg:h-[550px] lg:w-auto mx-auto flex items-center justify-center overflow-hidden border-8 border-white dark:border-slate-900 shadow-2xl">
-                   <!-- Professional Profile Image -->
-                   <img src="/assets/img/ns.jpg" alt="Nazim Shaikh" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop'">
+                   <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="Nazim Shaikh" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -175,61 +225,11 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 px-4 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex items-center space-x-4 mb-12">
-                <div class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
-                <h2 class="text-sm font-black uppercase tracking-[0.3em] opacity-50">Technical Arsenal</h2>
-                <div class="h-px flex-1 bg-slate-200 dark:bg-slate-800"></div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">WordPress</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">Webflow</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">JavaScript</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">HTML5 / CSS3</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">jQuery</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">Ajax</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">MySQL</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">Rest API</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">Shopify</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">PHP</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">Hosting Mgmt</span>
-                </div>
-                <div class="skill-badge p-4 rounded-xl flex flex-col items-center justify-center space-y-2">
-                    <span class="font-bold">Team Lead</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Experience Timeline -->
     <section id="experience" class="py-24 px-4 bg-slate-900 text-white overflow-hidden">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-4xl font-bold mb-16">Professional Journey</h2>
             <div class="space-y-12">
-                <!-- Current Role -->
                 <div class="relative pl-8 border-l-2 border-indigo-500">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 bg-indigo-500 rounded-full"></div>
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
@@ -244,221 +244,20 @@
                         <li>Conduct client calls for technical guidance and requirement gathering.</li>
                         <li>Develop custom WordPress themes and plugins from scratch.</li>
                         <li>Integrate third-party services and REST APIs to enhance functionality.</li>
-                        <li>Troubleshoot complex technical issues for seamless performance.</li>
-                    </ul>
-                </div>
-                <!-- Previous Role -->
-                <div class="relative pl-8 border-l-2 border-white/20">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-700 rounded-full"></div>
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-                        <div>
-                            <h3 class="text-2xl font-bold">WordPress Developer</h3>
-                            <p class="text-slate-400 font-bold uppercase tracking-wider text-sm">Creative Crows Technology</p>
-                        </div>
-                        <span class="px-4 py-1 bg-white/10 rounded-full text-xs font-bold w-fit">2017 - 2018</span>
-                    </div>
-                    <ul class="space-y-3 text-slate-500 list-disc ml-4">
-                        <li>Built and maintained websites using HTML, CSS, jQuery, and WordPress.</li>
-                        <li>Assisted in theme and plugin customization.</li>
-                        <li>Participated in requirement gathering client meetings.</li>
-                        <li>Optimized website performance and bug fixing.</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Projects -->
-    <section id="projects" class="py-24 px-4 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold mb-4">Case Studies</h2>
-            <p class="text-slate-600 dark:text-slate-400 mb-12 max-w-2xl">A closer look at some of my complex engineering projects.</p>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-         <!-- Project: Ease India Travel -->
-                <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-500/5 group border border-slate-100 dark:border-slate-800">
-                    <div class="aspect-video relative overflow-hidden flex items-center justify-center">
-                        <img src="/assets/img/easeiIndia.png" alt="Ease India Travel" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-teal-900/60 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <span class="relative z-10 text-white text-2xl font-black opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-center px-4 uppercase">Ease India Travel</span>
-                    </div>
-                    <div class="p-8 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">Ease India Travel</h3>
-                            <a href="https://easeindiatravel.com/" target="_blank" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-teal-600 hover:text-white transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Advanced travel portal with booking systems, itinerary planners, and integrated payment gateways.</p>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-[10px] font-bold text-teal-600 uppercase">Tech Stack</span>
-                            <p class="text-xs font-bold mt-1">WordPress / JS / HTML / CSS</p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <!-- Project: SM Networks -->
-                <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-500/5 group border border-slate-100 dark:border-slate-800">
-                    <div class="aspect-video relative overflow-hidden flex items-center justify-center">
-                        <img src="/assets/img/sm.png" alt="SM Networks" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-indigo-900/60 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <span class="relative z-10 text-white text-2xl font-black opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-center px-4 uppercase">SM Networks</span>
-                    </div>
-                    <div class="p-8 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">SM Networks</h3>
-                            <a href="https://smnetworks.co.in/" target="_blank" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-indigo-600 hover:text-white transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">IT networking solutions platform featuring enterprise-grade performance and comprehensive service catalogs.</p>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-[10px] font-bold text-indigo-600 uppercase">Tech Stack</span>
-                            <p class="text-xs font-bold mt-1">WordPress / JS / HTML / CSS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: MUZEUM 360 -->
-                <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-500/5 group border border-slate-100 dark:border-slate-800">
-                    <div class="aspect-video relative overflow-hidden flex items-center justify-center">
-                        <img src="/assets/img/museum360.png" alt="MUZEUM 360" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-purple-900/60 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <span class="relative z-10 text-white text-2xl font-black opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-center px-4 uppercase">MUZEUM 360</span>
-                    </div>
-                    <div class="p-8 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">MUZEUM 360</h3>
-                            <a href="https://www.muzeum360.com/" target="_blank" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-purple-600 hover:text-white transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">An immersive digital agency website featuring high-end portfolios and advanced GSAP animations.</p>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-[10px] font-bold text-purple-600 uppercase">Tech Stack</span>
-                            <p class="text-xs font-bold mt-1">WordPress / JS / HTML / CSS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: M360 Suite -->
-                <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-500/5 group border border-slate-100 dark:border-slate-800">
-                    <div class="aspect-video relative overflow-hidden flex items-center justify-center">
-                        <img src="/assets/img/m360suite.png" alt="M360 Suite" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-blue-900/60 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <span class="relative z-10 text-white text-2xl font-black opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-center px-4 uppercase">M360 Suite</span>
-                    </div>
-                    <div class="p-8 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">M360 Suite</h3>
-                            <a href="https://m360suite.com/" target="_blank" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-blue-600 hover:text-white transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Comprehensive SaaS product landing page designed for technical showcase and high conversion rates.</p>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-[10px] font-bold text-blue-600 uppercase">Tech Stack</span>
-                            <p class="text-xs font-bold mt-1">WordPress / JS / HTML / CSS</p>
-                        </div>
-                    </div>
-                </div>
-
-       
-
-                <!-- Project: TappAv -->
-                <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-500/5 group border border-slate-100 dark:border-slate-800">
-                    <div class="aspect-video relative overflow-hidden flex items-center justify-center">
-                        <img src="/assets/img/tappav.png" alt="TappAv" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-red-900/60 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <span class="relative z-10 text-white text-2xl font-black opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-center px-4 uppercase">TappAv</span>
-                    </div>
-                    <div class="p-8 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">TappAv</h3>
-                            <a href="https://tappav.com/" target="_blank" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-red-600 hover:text-white transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Audio-visual solutions website featuring high-tech interface designs and service portfolios.</p>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-[10px] font-bold text-red-600 uppercase">Tech Stack</span>
-                            <p class="text-xs font-bold mt-1">WordPress / JS / HTML / CSS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Rayden Design -->
-                <div class="bg-white dark:bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-indigo-500/5 group border border-slate-100 dark:border-slate-800">
-                    <div class="aspect-video relative overflow-hidden flex items-center justify-center">
-                        <img src="/assets/img/rayden.png" alt="Rayden Design" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-indigo-900/60 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <span class="relative z-10 text-white text-2xl font-black opacity-30 group-hover:opacity-100 transition-opacity duration-500 text-center px-4 uppercase">Rayden Design</span>
-                    </div>
-                    <div class="p-8 space-y-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">Rayden Design</h3>
-                            <a href="https://raydendesign.com" target="_blank" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full hover:bg-indigo-600 hover:text-white transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
-                        </div>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">High-end e-commerce platform with custom shopping journeys and bespoke account management.</p>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
-                            <span class="text-[10px] font-bold text-indigo-600 uppercase">Tech Stack</span>
-                            <p class="text-xs font-bold mt-1">WordPress / JS / HTML / CSS</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Location -->
-    <section class="py-24 px-4 bg-slate-100 dark:bg-slate-900 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <h3 class="text-sm font-black uppercase tracking-widest opacity-50">Academic Background</h3>
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-sm">
-                    <h4 class="text-2xl font-bold">BSc in Computer Science</h4>
-                    <p class="text-indigo-600 font-bold">Pune University</p>
-                    <p class="text-slate-500 mt-2">2012 - 2015</p>
-                </div>
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <span class="px-6 py-2 bg-slate-200 dark:bg-slate-700 rounded-full text-xs font-bold uppercase">English</span>
-                    <span class="px-6 py-2 bg-slate-200 dark:bg-slate-700 rounded-full text-xs font-bold uppercase">Hindi</span>
-                    <span class="px-6 py-2 bg-slate-200 dark:bg-slate-700 rounded-full text-xs font-bold uppercase">Urdu</span>
-                </div>
-            </div>
-            <div class="space-y-6">
-                <h3 class="text-sm font-black uppercase tracking-widest opacity-50">Current Base</h3>
-                <div class="bg-indigo-600 p-8 rounded-[2rem] text-white space-y-4">
-                    <div class="flex items-center space-x-4">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        <p class="text-lg font-medium">Pune, Maharashtra - 411048</p>
-                    </div>
-                    <p class="opacity-80">Flat No. 205 Shah Goodwill, Bhagyoday Nagar Kondhwa.</p>
-                    <div class="pt-4 flex gap-4">
-                        <a href="mailto:shaikhnazim8421@gmail.com" class="px-4 py-2 bg-white text-indigo-600 rounded-xl font-bold text-sm">Email Nazim</a>
-                        <a href="tel:+918668591649" class="px-4 py-2 bg-indigo-500 text-white rounded-xl font-bold text-sm">Call Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Contact / Social Section -->
+    <!-- Contact Section -->
     <section id="contact" class="py-24 px-4 overflow-hidden relative">
         <div class="max-w-5xl mx-auto text-center space-y-16">
             <div class="space-y-4">
                 <h2 class="text-5xl md:text-8xl font-black">Let's <span class="gradient-text">Build.</span></h2>
                 <p class="text-xl text-slate-500 dark:text-slate-400 font-medium">Open for new opportunities and technical collaborations.</p>
             </div>
-
             <div class="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
-                <!-- Eye-Catchy LinkedIn Card -->
                 <a href="https://www.linkedin.com/in/nazim-shaikh-06b0b0135/" target="_blank" class="linkedin-card block p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
                     <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:opacity-20 transition-opacity">
                         <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -467,21 +266,10 @@
                         <div class="bg-white/20 p-5 rounded-3xl backdrop-blur-md">
                             <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         </div>
-                        <div class="text-center">
-                            <span class="text-sm font-bold uppercase tracking-widest opacity-80">Professional Network</span>
-                            <h3 class="text-3xl font-black mt-2">Connect on LinkedIn</h3>
-                        </div>
-                        <div class="px-8 py-3 bg-white text-blue-600 rounded-full font-bold shadow-lg group-hover:bg-slate-50 transition-colors">
-                            Visit Profile
-                        </div>
+                        <h3 class="text-3xl font-black mt-2">Connect on LinkedIn</h3>
+                        <div class="px-8 py-3 bg-white text-blue-600 rounded-full font-bold shadow-lg">Visit Profile</div>
                     </div>
                 </a>
-
-                <!-- Direct Line -->
-                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-[2.5rem] flex flex-col items-center space-y-4">
-                    <span class="text-[10px] font-black uppercase tracking-[0.3em] opacity-50">Direct Line</span>
-                    <a href="tel:+918668591649" class="text-3xl font-black hover:text-indigo-600 transition-colors">+91 86685 91649</a>
-                </div>
             </div>
         </div>
     </section>
@@ -491,7 +279,7 @@
     </footer>
 
     <script>
-        // Theme Toggle Logic
+        // Theme Toggle
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleMobile = document.getElementById('theme-toggle-mobile');
         const sunIcon = document.getElementById('sun-icon');
@@ -524,8 +312,7 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Scroll reveal animation
-        const observerOptions = { threshold: 0.1 };
+        // Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -533,7 +320,7 @@
                     entry.target.classList.remove('opacity-0', 'translate-y-10');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
@@ -541,10 +328,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
